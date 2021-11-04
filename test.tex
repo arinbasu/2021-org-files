@@ -1,0 +1,559 @@
+% Created 2021-11-04 Thu 17:49
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Arin}
+\date{\today}
+\title{A test org}
+\hypersetup{
+ pdfauthor={Arin},
+ pdftitle={A test org},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.5)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{A brief tutorial on org-mode: introduction}
+\label{sec:orga518062}
+
+Org-mode is a great writing and content authoring and thinking tool for emacs. In order to use org-mode, it is best to first install Emacs and then use org-mode. Use org-mode as an outliner. Use org-mode in conjunction with bibtex to write academic documents that can then be exported to various formats after parsing with pandoc, a universal document parser, which means that if you provide the document name to pandoc command and ask pandoc to convert the document to other formats, it will do so for you. For example, you can write in org and then ask pandoc to convert th
+e document from org to markdown and then use the markdown document to be exported further. Or, you can write the document in org  mode and then use pandoc to convert the document to latex and then use something like overleaf to convert the document to latex and pdf and use it that way. Or you can transform the document to word and then further process it.
+
+In this tutorial, my aim is to write the simplest workflow that we can use to work with emacs and org-mode to write data-driven documents that can be converted to a number of different formats. A popular format is to write in jupyter notebooks.
+
+\section{Mechanics of content authoring in orgmode}
+\label{sec:orgca468d9}
+
+\subsection{Adding headers and converting different types of headers}
+\label{sec:orgc82d56d}
+You add header levels by adding an asterisk at the beginning of a line. The number of asterisks will determine the level of headers you want to insert. A second level header will be nested within a first level header. I usually do not use more than two levels of headers and that seems to work well for me. YMMV.
+By default, orgmode does not number the headers.
+Suppose you have written a large document or you are writing a large document and you want to jump from one header to another. You do C-c C-n which is the next heading. Or C-c C-p to jump to the previous heading or if you want to jump  one level up, then you do C-c C-u. If you do C-c C-j, then emacs will ask you to move the cursor to a particular header and then hit enter and the header with it content will open up. This is referred to as drawer in org-mode.
+
+\subsection{How to add headers}
+\label{sec:org9e001b0}
+If you do M-RET or press the alt key and enter, then it will insert a header at the same level next to the header in which you are working. But if you want to insert a new header BEFORE, then you will take the cursor to the beginning of the header and then hit M-RET and it will insert a new header of the same level but above the current header. Same thing if you do C-RET, that is hit control an enter at the same time.
+If you want to convert a second level header to a first level header, you do M-S-LEFT that is alt key plus shift key plus left key. Likewise, if you want to convert a second level header to a third level header, you do M-S-->
+If you want to move your headers up and down, then do M-up or M-down. This will move the header and the associated content up or down depending on what you did.
+
+
+\subsection{Cutting and pasting}
+\label{sec:org5523b4a}
+There is no concept of selecting a chunk of text and then cutting or pasting. Pasting in Emacs world is referred to as "yanking" and therefore the symbol is y. Cutting and copying are two different things. In copying you copy the content in the header with C-c C-x M-w, this will leave the text as is and then copy it to something called a "kill ring". On the other hand, if you want to cut the text, you do C-c C-x C-w and it will 'cut' the text and place it in the kill ring. Then, wherever you want, you do C-c C-x C-y. 
+
+
+\subsection{What if you want a line to be converted to a heading?}
+\label{sec:org8c30446}
+Place the cursor in the beginning and hit M-RET. Basically, wherever you want the heading to begin, place the cursor there and hit M-RET and it will insert the heading in the same level. The same effect if you write a single line and hit C-c * and it will create a subheading. So same level heading is M-RET, subheading is C-c* 
+
+\subsubsection{This line was converted to a header by c-c star}
+\label{sec:orgc7d08e2}
+
+I was a headline once, C-c * turned me to a simple line
+
+\begin{enumerate}
+\item These are lines
+\label{sec:org15b50fe}
+\item This is a second line
+\label{sec:orgfa27682}
+\item All these were turned into headers by c-c* by selecting them first of course
+\label{sec:orge223b16}
+\end{enumerate}
+
+\subsection{What if you want a line to be converted to a heading?}
+\label{sec:orgba48ef1}
+Place the cursor in the beginning and hit M-RET. Basically, wherever you want the heading to begin, place the cursor there and hit M-RET and it will insert the heading in the same level. 
+
+\subsubsection{Visibility cycling}
+\label{sec:org32ef752}
+using tab and shift-tab, the headers can be cycled to be visible. So, if you hit tab next to a header, that header will be shown and the document will fold up. If that header contains any text associated with it or nested headers, then you will see an ellipsis in the form of three dots to the left of this header. This is ONLY going to work if you place your cursor next to a header, it is not going to work in a paragraph like where you are reading it.
+So the way it works is something like as follows. You place the cursor next to the header and then hit tab key. The header only shows and the content of the header (known as tree) hides itself. Then you hit tab again and the header with the content shows up. This is useful when you are editing a large document where you do not want to be distracted with too many headers and you only want to work on some part of the document, not all of it. This works like a toggle button.
+
+
+\subsubsection{Writing tables}
+\label{sec:org758f716}
+
+\subsubsection{Adding images to orgmode documents}
+\label{sec:org2f07a4c}
+
+\subsubsection{Adding hyperlinks}
+\label{sec:org044eee0}
+
+\subsubsection{Adding citations}
+\label{sec:org9910134}
+
+\subsubsection{Adding codes}
+\label{sec:org94c02d0}
+
+\subsubsection{Exporting orgmode documents to other formats}
+\label{sec:org3ce5df2}
+
+\subsubsection{}
+\label{sec:orga489463}
+
+\subsection{Visibility cycling}
+\label{sec:org9f2875c}
+using tab and shift-tab, the headers can be cycled to be visible. So, if you hit tab next to a header, that header will be shown and the document will fold up. If that header contains any text associated with it or nested headers, then you will see an ellipsis in the form of three dots to the left of this header. This is ONLY going to work if you place your cursor next to a header, it is not going to work in a paragraph like where you are reading it.
+So the way it works is something like as follows. You place the cursor next to the header and then hit tab key. The header only shows and the content of the header (known as tree) hides itself. Then you hit tab again and the header with the content shows up. This is useful when you are editing a large document where you do not want to be distracted with too many headers and you only want to work on some part of the document, not all of it. This works like a toggle button.
+
+\subsection{Concept of a sparse tree}
+\label{sec:orgc84963a}
+So let's say we are working on a large document and I just want to work on this particular segment where I am fully immersed. I do not want to see anythiing else. Sparse tree will enable that. To enable that, use C-c /
+
+\subsection{Writing paragraphs}
+\label{sec:org8f0f04f}
+\subsection{Copying and pasting or cutting and pasting}
+\label{sec:org8356bcd}
+
+\subsection{Writing lists}
+\label{sec:orgb1b523a}
+Start with a dash sign, so
+
+\begin{itemize}
+\item first item
+\item[{$\square$}] this checkbox was inserted with M-S-RET
+\begin{enumerate}
+\item test
+\item test 2 this was done with first typing 1. then M-RET
+\item and this with M-RET and so on
+\end{enumerate}
+\item third item was place ABOVE second item with M-up
+\item second item
+\begin{itemize}
+\item third item again was indented
+\end{itemize}
+\item then unindentted with 
+\begin{itemize}
+\item with M--> indented again
+\item and M-RET inserted this in the same level
+\end{itemize}
+\end{itemize}
+\subsubsection{I was a list item once, C-c * turned me to a header}
+\label{sec:org144a306}
+
+\begin{itemize}
+\item First item
+\item Second item
+\item Third item
+\end{itemize}
+
+the following is an unsorted list
+
+\begin{itemize}
+\item Fifth item
+\item First item
+\item Third item
+\end{itemize}
+But doing a C-c \^{} sorted them to an alphabetically sorted lis
+
+And then to get out of the list, hit RET twice
+
+\subsection{Concept of Blocks}
+\label{sec:org9b3a15b}
+HashPlusBEGIN and HashPlusEND begins and closes blocks.Usually used for codes etc.
+
+\subsection{Tables}
+\label{sec:orgb65a152}
+\begin{itemize}
+\item Start with a | symbol to begin a table
+\item Start a table with C-c |
+\item Then use | as a column separator
+\item Then use |- as a horizontal line
+\item This will turn the first row a header row
+\item Put cell contents between | and |
+\item Realign table with RET or TAB or C-c C-c
+\item Within the table, TAB moves to next cell
+\item Within the table RET moves to next row
+\item Put the cursor outside the table and RET to end the table
+\end{itemize}
+
+
+\begin{center}
+\begin{tabular}{lrr}
+Exposure & Cases & Controls\\
+\hline
+Exposed & 120 & 20\\
+Non-exposed & 60 & 100\\
+Total & 180 & 120\\
+\end{tabular}
+\end{center}
+
+
+\subsection{How to edit tables}
+\label{sec:org705b2c0}
+
+\begin{center}
+\begin{tabular}{ll}
+What to do & Instructions\\
+\hline
+Sort table & C-c\^{}\\
+Move between columns & M-a or M-e\\
+Move row down & M-DN\\
+Move current columnn to left or right & M--> or M-<-\\
+Insert new column to the left & M-S-->\\
+Delete column & M-S-<-\\
+Insert row above the current & M-S-DN\\
+Move row up & M-UP\\
+Delete Row & M-S-UP\\
+Insert horizontal line & c-c -\\
+Insert horizontal line and move cursor & C-c RET\\
+\end{tabular}
+\end{center}
+
+\subsection{Other miscellaneous things with tables}
+\label{sec:orgf5dca00}
+
+\begin{center}
+\begin{tabular}{ll}
+What do you want to do & Instructions\\
+\hline
+Copy table region & C-c C-x M-w\\
+Cut table region & C-c C-x C-w\\
+Paste region & C-c C-x C-y\\
+Split table & M-RET\\
+Sum numbers & C-c + then C-y\\
+Copy Down & S-RET\\
+Edit in separate window & C-c ` and finish with C-c C-c\\
+Import tab separated table & M-x org-table-import\\
+Convert a region into table & Select then C-c\\
+Export Table & M-x org-table-export\\
+For long tables, display header & M-x org-table-header-line-mode\\
+Transpose Table & M-x org-table-transpose-table-at-point\\
+\end{tabular}
+\end{center}
+
+\subsection{Convert a region to table}
+\label{sec:orgbca0101}
+\begin{enumerate}
+\item First type space separated data in a region
+\item Select the region
+\item Type C-c |
+\end{enumerate}
+
+The following table was drawn on the basis of the above notes     
+
+\begin{center}
+\begin{tabular}{lr}
+Student & test\textsubscript{results}\\
+Tess & 100\\
+Kim & 200\\
+\end{tabular}
+\end{center}
+
+\subsection{Transpposition of a time dependent table e.g.}
+\label{sec:org2bddce4}
+\begin{enumerate}
+\item Write a space separated table
+\item Then put the cursor in first row first column
+\item Type M-x org-table-transpose-table-at-point
+\end{enumerate}
+
+The following table was produced with the above steps
+\begin{table}[htbp]
+\label{tab:org8a8aaff}
+\centering
+\begin{tabular}{lrr}
+Individual & xxx & yyy\\
+Score\textsubscript{t1} & 100 & 99\\
+Score\textsubscript{t2} & 120 & 98\\
+Score\textsubscript{t3} & 130 & 49\\
+\end{tabular}
+\end{table}
+
+The org table mode can be turned on with M-x orgtbl-mode
+
+\subsection{Using the table as a spreadsheet}
+\label{sec:org0909cc5}
+
+The table can be used as a spreadsheet. In order to do so, it is useful to use the concepts of references. Take the following table
+
+\begin{center}
+\begin{tabular}{lrrr}
+Exposure & Cases & Controls & Total\\
+Exposed & 120 & 40 & 160\\
+Non-exposed & 40 & 80 & 120\\
+Total & 160 & 120 & 280\\
+\end{tabular}
+\end{center}
+
+Let's say we want to work on this as a table
+
+\begin{itemize}
+\item If you want to turn on/off grid display, do C-c \}
+\item If you want to find out coordinate of a grid, C-c ?
+\item You can find the reference of a cell with C-c ?
+\item Rule is: @ROW\$COLUMN
+\item @0\$0 refers to the current cell
+\item @2 implies second row of current column
+\item \$1 implies first column of the current row
+\item Ranges are indicated with beginning .. end
+\item The beginning and ends are INCLUDED
+\item \$1..\$3 means the row elements of first, second, and third columns
+\item Otherwise, indicate the row with @ symbol, so
+\item \$1..@2\$3 would mean from the first column to second row of third column
+\item These range references return a VECTOR of values
+\item Feed them into vector functions
+\item If you want to reference another table, set a name to it, by:
+\item \#+NAME: Name of the table
+\item After writing the formula below the table with:
+\item \#+TBLFM: <expression>, place cursor on the line and
+\item Do, C-c C-c
+\item You can write more than one formulae
+\item If you do so, place the cursor next to each line and do C-c C-c
+\end{itemize}
+
+\subsection{Writing the formula}
+\label{sec:org7f74258}
+\begin{itemize}
+\item A formula can be any algebraic expression
+\item Example: vsum(@2..@3) will calculate the vertical sum
+\item Use \#+TBLFM: write the formula
+\end{itemize}
+
+\subsection{How to insert hyperlinks to a document}
+\label{sec:org3acfea5}
+Let's say we want to place a link to an external resource such as Medium or Curvenote. We will write like this:
+\begin{itemize}
+\item \href{https://medium.com/@arinbasu}{Medium Arin's page}
+\item Org will turn the link to a blue hyperlink
+\item \url{https://www.curvenote.com}
+\item Org will turn the page to a blue hyperlink for Curvenote
+\item But this time it leaves the URL as is as we did not provide a description
+\item For internal links, we can do similar things with:
+\begin{itemize}
+\item A section with \ref{sec:org7ddcdd0}
+\item Write the header between two squared brackets
+\item Otherwise, for tables, do something like \#+NAME: somename and then
+\item Add the somename between the square brackets, so
+\item \ref{tab:org8a8aaff} will lead to the long table
+\item You can also insert link with C-c C-l, so
+\item \href{https://www.nixos.org}{NixOs webpage} was inserted with this keystroke
+\end{itemize}
+\end{itemize}
+
+
+\subsection{Concept of drawers}
+\label{sec:org7ddcdd0}
+Hiding information so use
+::Draw1::
+Then write something and then
+::END::
+ends the drawer
+
+\subsection{Orgmode as productivity tool}
+\label{sec:org01c902d}
+Orgmode can be used to store ideas and productivity stuff while writing, includng todo items and logging processes.
+\begin{itemize}
+\item Create a to do item with headline with TODO keyword, or
+\item C-c C-t
+\item The following todo item was created that way
+\item Rotate between TODO, DONE, and Plain header with C-c C-t
+\item Or, do S--> or S-<- shift right or left
+\item Once you have done that, and entered a few stuff, then
+\item Use C-c / to use it as a sparse tree (see \ref{sec:orgc84963a} )
+\item Add a new todo entry below the present one with S-M-RET
+\item The sparse tree will show the todo items, not the done ones
+\item We can add something like INPROCESS before DONE, so we modify
+\item the \textasciitilde{}/.emacs.d/init.el file with
+\item (setq org-todo-keywords
+'((sequence "TODO" "INPROCESS" "|" "DONE")))
+\item Then exit Emacs and restart and revisit an org file
+\item How to set up dependencies for todo items
+\begin{itemize}
+\item This means, you list what items must be completed before
+\item Another item can be marked as done
+\item and so on
+\end{itemize}
+\item Record timestamp and note when change a todo state
+\begin{itemize}
+\item C-u C-c C-t then C-c C-c
+\item This is a good practice as this forces you to recognise
+\item What you did with it!
+\end{itemize}
+\item Prioritise tasks with \#A \#B \#C where A = highest priority
+\end{itemize}
+
+
+
+\subsection{INPROCESS Orgmode as a productivity tool}
+\label{sec:orgc09cf65}
+\begin{itemize}
+\item State "INPROCESS"  from "TODO"       \textit{[2021-11-04 Thu 13:45] } \\
+Still learning,
+\end{itemize}
+\subsubsection{{\bfseries\sffamily TODO} Complete the tutorial by today [1/2]}
+\label{sec:org6a2b523}
+
+\subsubsection{{\bfseries\sffamily DONE} Find out how to rename files [2/2]}
+\label{sec:orgaa9d032}
+
+\subsection{How to use tags in orgmode\hfill{}\textsc{learning:tutorial:editing}}
+\label{sec:orgbaaece2}
+
+\begin{itemize}
+\item Headline can have tags at the end of the headline
+\item Tags are added with :tagword:
+\item Two or more tags are written as :tag1:tag2:
+\item Tags have same colour as headlines
+\item Subheadings i.e., heading level 2 from heading level 1 inherits the tags
+\item So in the following example, "Adding images \ldots{}" has tag learning
+\item Adding images also has two subheadings "Adding images from files" and
+"Adding images from websites"
+\item Adding images from websites does not have a separate tag but it can be said that this one has inherited the learning tag
+\item You can specify tags for files so in the preamble, do
+\item \#+FILETAGS: :learning:tutorial:
+\item See, same as tags for headings
+\item Tags are searchable
+\begin{itemize}
+\item Search tags with C-c / m
+\end{itemize}
+\item How to set tags:
+\begin{itemize}
+\item After headline, colon tagword colon
+\item C-c C-q
+\item C-c C-c works ony when you are in a headline
+\item In the preamble of your document with \#+TAGS: keyword
+\end{itemize}
+\end{itemize}
+
+\subsection{What are properties?\hfill{}\textsc{learning}}
+\label{sec:org2956194}
+You can assign properties to headlines or agenda items using drawers  where the drawer name is PROPERTIES between colons and assign attributes and values or keys and values. So for example an article can be assigned properties such as title, author, year as follows
+
+\textbf{*} Article Collection
+:title: A summary of how to use orgmode
+:author: AB
+:year: 2021
+
+If you have entered properties anywhere in the document, you can search for them using the C-c / m and specifying the name of the property that you created. As with the tags, properties can be inherited.
+
+\subsection{Using orgmode for universal idea capture\hfill{}\textsc{productivity:uses}}
+\label{sec:orga85b433}
+
+\begin{itemize}
+\item First, define a directory where you will keep notes
+\item (setq org-default-notes-file (concat org-directory "/notes.org"))
+\item Write the above in \textasciitilde{}/.emacs.d/init.el file
+\item So, notes.org is the directory where I am going to store my notes
+\item Hit M-x org-capture
+\item Select a template, for the first time it will show t for todo
+\item Write something and then hit C-c C-c
+\item When you do it for the first time, it will ask you to create org folder, say yes
+\item It will create /home/arin/org directory and will place a notes.org in it
+\item We often want to capture more than todo items, for this, create a template
+\item Template (setq org-capture-templates
+'(("j" "Journal" entry (file\textsubscript{datetree} "\textasciitilde{}/org/journal.org")
+   "* \%$\backslash$?\nEntered on \%U\n \%i\n \%a")))
+\end{itemize}
+
+
+\subsection{How to write rich text documents in orgmode?}
+\label{sec:orgd4428ad}
+
+\subsubsection{Writing paragraphs}
+\label{sec:org7cf495a}
+\begin{itemize}
+\item At least one empty line separate paragraphs
+\item Use blocks to insert special elements such as VERSE and QUOTE
+\item \textbf{Bold} is like this, \emph{italic} is like this, and \uline{underlined}
+\item \texttt{verbatim} and \texttt{code}
+\item \sout{strikethrough}
+\item Superscript: x\textsuperscript{2}
+\item Subscript x\textsubscript{1}
+\item Toggle them with C-c C-x $\backslash$
+\item Symbols, say alpha is \(\alpha\) (view with C-c C-x $\backslash$)
+\item For equations, set \#+OPTIONS: tex: t then
+\item for single line equations, \(a^2=b\) and for multiline equations,
+\item \begin{equation} \ldots{} equation \ldots{} \end{equation}
+\item Preview with \#+STARTUP: latexpreview and then C-c C-x C-l
+\item Horizontal rules are with five dashes
+\item Footnotes are given as \texttt{[fn:1]} and then \texttt{[fn:1] Description}
+\item View footnotes with C-c C-x f
+\end{itemize}
+
+\noindent\rule{\textwidth}{0.5pt}
+
+\subsection{Adding images to orgmode document}
+\label{sec:org5d4e178}
+Do the following, so:
+\begin{itemize}
+\item Write a caption of the image
+\item Give the image a name
+\item Insert the image with \texttt{[[image url]]}
+\item then view it inline with C-c C-x C-v and toggle the view
+\end{itemize}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{./somepic.jpg}
+\end{center}
+
+Then view it with C-c C-x C-v
+
+\subsection{Adding citations}
+\label{sec:org12b5d25}
+\begin{itemize}
+\item Before adding citations, prepare a bibtex file
+\item Say the bibtex file is named \texttt{test.bib}
+\item Add it to the preamble with \texttt{\#+bibliography: test.bib} in the block
+\item Wherever you want to insert, type M-x org-cite-insert then type the first letter of the citation key or something
+\item Then hit tab key
+\item It will show the matched name, accept it with RET RET
+\item Or manually with \texttt{[cite: @citation\_id]}
+\item Make sure you have orgmode version 9.5 or above
+\item find out with M-x org-version
+\end{itemize}
+
+Egger wrote (Egger, Matthias and Smith, George Davey and Schneider, Martin and Minder, Christoph, 1997)
+
+
+\subsection{Adding and evaluating  codes}
+\label{sec:org75b4a5f}
+
+\begin{itemize}
+\item Codes can be added with blocks
+\item Codes can also be evaluated that way
+\end{itemize}
+
+\begin{verbatim}
+this is a test
+\end{verbatim}
+
+But that was a trivial example. We will show two examples; one for R and the other for python.
+
+\subsubsection{What to do}
+\label{sec:orgab6db51}
+
+\begin{itemize}
+\item Start a block with \texttt{\#+begin\_src R (or Python) ... \#+end\_src}
+\item Write your code
+\item Place cursor witin the code block
+\item C-c C-c
+\end{itemize}
+
+\subsubsection{Here is an example with R}
+\label{sec:org49f0b92}
+
+\begin{verbatim}
+
+x <- 2
+y <- 8
+
+print(x * y)
+
+\end{verbatim}
+\end{document}
